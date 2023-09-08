@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "otherside",
+  "version": "${version}",
+  "name": "Otherside",
+  "accessWidener" : "otherside.accesswidener",
+  "description": "This mod prevents mobs from despawning after going thru a nether portal in order to mimic single-player behaviour. This mod was inspired by a same-named plugin for Paper by Kyle.",
+  "authors": ["Vacjan"],
+  "contact": {
+    "repo": "https://github.com/vacjan321/OthersideFabric"
+  },
+  "license": "All-Rights-Reserved",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "net.vacjan.otherside.Otherside"
+    ]
+  },
+  "mixins": [
+    "otherside.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
