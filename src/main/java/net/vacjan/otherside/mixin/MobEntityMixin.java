@@ -20,7 +20,7 @@ public abstract class MobEntityMixin extends Entity implements IMobEntityMixinHe
     }
 
     @Unique
-    public long lastWorldChange = 0;
+    public long lastWorldChange = -1;
 
     public void othersideFabric$setLastWorldChange(long n){
         lastWorldChange = n;
@@ -42,7 +42,7 @@ public abstract class MobEntityMixin extends Entity implements IMobEntityMixinHe
     @Inject(at=@At("HEAD"), method = "checkDespawn()V", cancellable = true)
     void checkDespawnMixin(CallbackInfo ci) {
         if( !(this.getWorld().getDifficulty() == Difficulty.PEACEFUL && this.isDisallowedInPeaceful()) && (!this.isPersistent() && !this.cannotDespawn())){
-                if(this.lastWorldChange < Otherside.config.getDespawnCooldown()*20L){
+                if(this.lastWorldChange!=-1 && this.lastWorldChange < Otherside.config.getDespawnCooldown()*20L){
                     ci.cancel();
                 }
         }

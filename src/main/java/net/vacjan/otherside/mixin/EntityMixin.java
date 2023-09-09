@@ -35,7 +35,9 @@ public abstract class EntityMixin {
     void baseTick(CallbackInfo ci) {
         //noinspection ConstantValue
         if(MobEntity.class.isAssignableFrom(this.getClass())){
-            ((IMobEntityMixinHelper)this).othersideFabric$incrementLastWorldChange();
+            if(((IMobEntityMixinHelper)this).othersideFabric$getLastWorldChange() != -1){
+                ((IMobEntityMixinHelper)this).othersideFabric$incrementLastWorldChange();
+            }
         }
     }
 }
