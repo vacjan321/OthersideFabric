@@ -85,5 +85,5 @@ publishing {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/otherside.accesswidener")
+    //accessWidenerPath = file("src/main/resources/otherside.accesswidener")
 }
