@@ -15,12 +15,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Entity.class)
 public abstract class EntityMixin {
-    //For debugging
-    @SuppressWarnings("unused")
-    @Shadow
-    @Final
-    private static Logger LOGGER;
-
     @Inject(at=@At("RETURN"), method = "teleportTo(Lnet/minecraft/world/TeleportTarget;)Lnet/minecraft/entity/Entity;")
     void teleportTo(TeleportTarget teleportTarget, CallbackInfoReturnable<Entity> cir) {
         if (cir.getReturnValue()!=null){

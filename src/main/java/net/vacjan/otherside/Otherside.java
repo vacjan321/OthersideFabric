@@ -13,6 +13,8 @@ public class Otherside implements ModInitializer {
      */
     @Override
     public void onInitialize() {
+        System.out.println("INIT OTHERSIDE");
+
         config.loadConfig();
 
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> dispatcher.register(literal("otherside")

@@ -9,7 +9,7 @@
     "repo": "https://github.com/vacjan321/OthersideFabric"
   },
   "license": "Zero-Clause BSD",
-  "environment": "server",
+  "environment": "*",
   "entrypoints": {
     "main": [
       "net.vacjan.otherside.Otherside"
