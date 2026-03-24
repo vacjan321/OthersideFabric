@@ -2,6 +2,7 @@ package net.vacjan.otherside;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.minecraft.server.command.CommandManager;
 import net.minecraft.text.Text;
 import static net.minecraft.server.command.CommandManager.literal;
 
@@ -24,7 +25,7 @@ public class Otherside implements ModInitializer {
                     return 1;
                 })
                 .then(literal("reload")
-                        .requires(source -> source.hasPermissionLevel(4))
+                        .requires(CommandManager.requirePermissionLevel(CommandManager.OWNERS_CHECK))
                         .executes(context -> {
                             config.loadConfig();
                             context.getSource().sendMessage(Text.literal("Otherside reloaded!"));
